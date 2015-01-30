@@ -10,6 +10,7 @@ define l = Character('Lazarus', color="#70f")
 define m = Character('Malvin', color="#0400ff")
 define g = Character('Grey', color="#808080")
 define v = Character('Vlad', color="#000000")
+define b = Character('Barkeep', color="#ffffff")
 
 image bg darkroom = "darkroom.png"
 image bg PFentrance = "PFentrance.png"
@@ -30,11 +31,9 @@ image Malvin neutral = "Malneutral.png"
 image Vlad neutral = "Vladneutral.png"
 
 label start:
-    scene bg darkroom
 
     "hrg- wha a- ah... ahhggh"
 
-    play music "After a Kill.ogg" loop
 
     "Ah, the sound of death."
 
@@ -46,13 +45,7 @@ label start:
 
     "{color=#f00}Assassin{/color}"
 
-    scene bg darkroom
-    with dissolve
 
-    pause 1
-
-    scene bg PFentrance
-    play music "Buisness as Usual.ogg" loop
 
     "I walk into the guild, as I am so often used to doing."
 
@@ -62,19 +55,12 @@ label start:
 
     "A booming voice ringsout from the bar area; a voice not fit to be an assassins."
 
-
-    with Dissolve(1)
-
-    scene bg PFbar
-    show barkeep joyful
-
-    "Barkeep" "Heya kid, you're back! How'd the job go?"
+    b "Heya kid, you're back! How'd the job go?"
 
     "Well enough. Had to dirty my blade but that's how it usually ends up."
 
     "He nods as he gets back to work."
 
-    show barkeep neutral
 
     "That right there was Vic. His real name is Vicros Felchter, but everyone calls him Vic."
 
@@ -90,17 +76,19 @@ label start:
 
     "Mal’s a skinny man with a nervous air about him, like he always has an appointment to go to."
 
-    "Honestly, he’s a pretty lousy bartender too. I don’t know why he doesn’t just stop bartending and take the blade full time, since that’s all he seems to be good at. Unlike his brother, Mal takes on assassinations from time to time, his gaunt body working to his advantage."
+    "Honestly, he’s a pretty lousy bartender too. I don’t know why he doesn’t just stop bartending and take the blade full time, since that’s all he seems to be good at."
+
+    "Unlike his brother, Mal takes on assassinations from time to time, his gaunt body working to his advantage."
 
     "I was only on one job with him before; and then I learned the truth."
 
-    "Mal turns into a different man when he’s on the job. His nervous air disappears entirely; replaced with one that is business-like and to the point. He gets the job done and makes sure he gets the job done."
+    "Mal turns into a different man when he’s on the job. His nervous air disappears entirely; replaced with one that is business-like and to the point. He makes sure he gets the job done."
 
     "It’s Mal’s day off today, since the bar in town is going under reconstruction. Seems like a magical experiment or something went awry. I think I’ll go see him today: see what he’s up to."
 
     "Unfamilar voice" "Hey, I'm talking to you, buddy!"
 
-    show lazarus irritated
+
 
     "My thoughts of seeing Mal are interrupted by someone I've never met before."
 
@@ -116,7 +104,7 @@ label start:
 
     "Who in the hells are you? Never seen your face around here."
 
-    "Unfamiliar person" "Pretty rude wat to greet a new member after ignoring him, buddy."
+    "Unfamiliar person" "Pretty rude way to greet a new member after ignoring him, buddy."
 
     # "I'm not your buddy, pal!"
 
@@ -126,7 +114,7 @@ label start:
 
     "Your new boss, my names Grey!"
 
-    show lazarsus shocked
+
 
     "The guy you just put in his place" "O-oh... I'm so very sorry. It's just that you looked so young, I-"
 
@@ -136,7 +124,7 @@ label start:
 
     g "So what’s your name anyway, young blood?"
 
-    show lazarus neutral
+
 
     "This guy" "Uh, L-Lazarus, sir. Lazarus Redfield."
 
@@ -152,13 +140,11 @@ label start:
 
     l "Yes, sir."
 
-    with dissolve(1)
 
-    scene PFentrance
 
     "Now, to find Malvin."
 
-    scene bg malroom
+
 
     "It seems that Malvin is a bit busy..."
 
@@ -177,12 +163,11 @@ label start:
 
     "Malvin" "Gah!"
 
-    scene bg vial
+
 
     "He jumps and the vial he’s holding bounces around in his hands. He lunges for it and tries to get ahold of it. The vial settles down in his hands after a few grabs."
 
-    scene bg alchemyroom
-    show Malvin Irritated
+
 
     m "D-d-don't do that! It almost spilled! Do you even know what could've happened if the poison got on me?!"
 
@@ -192,7 +177,7 @@ label start:
 
     g "Okay, fine. I'm sorry. So whats this about poison?"
 
-    show Malvin Neutral
+
 
     m "Uhhh, this? It’s a new venom I’m developing. However, this version isn’t that potent, so I’m trying to combine it with this special mix of snake venom."
 
@@ -248,14 +233,9 @@ label start:
 
     m "I heard a rumor about a new recruit. Did he report to you yet?"
 
-    play sound "table_crash.ogg"
-    play music "Trouble.ogg"
-
     g "Please don't let that be him!"
 
-    scene bg PFtable
-    show Lazarus irritated at right
-    show Vlad neutral at left
+
 
     "Vlad" "Seems you have some anger problems, new guy. Assassins with anger problems never last long. It seems that you want an early grave and a place of your own in one of the nine hells."
 
@@ -267,13 +247,11 @@ label start:
 
     g "What the nine hells are you doing? I thought I made it pretty clear to try and not make enemies!"
 
-    show lazarus neutral
 
     l "Hes the one looking to make enemies. No respect. Who is he, anyway?"
 
     g "He’s the one I was telling you about earlier. Remember, the one who took that new guy and left each body part in- wait, that was a different guy. Uhh..., ah! Vlad here was the one who ************************."
 
-    show lazarus shocked
 
     #l "He did what?"
 
@@ -306,8 +284,7 @@ label start:
     v "Very well. I’ll see him soon enough, so it doesn’t matter. I can wait."
 
 
-    show Lazarus Neutral
-    play music "Buisness as usual.ogg" loop
+
 
     "...Creepy."
 
@@ -315,14 +292,11 @@ label start:
 
     g "Okay, Laz. Let’s get you on your first job before you get yourself killed, Thanatos forbid, you make me happy. Hey, Vic! What jobs are available?"
 
-    scene bg PFbar
-    show barkeep neutral
 
-    "Vic" "Slow week this time. Only 6 jobs avaliable. Ahnd half of them seem too tough for a guy's first mission."
+    "Vic" "Slow week this time. Only 6 jobs avaliable. And half of them seem too tough for a guy's first mission."
 
     "I take a look at the job list."
 
-    scene bg jobboard
 
     "Hm, Vics right. Looks like only 3 missions available and doable. I don’t even know what Lazarus is even capable of, let alone what jobs are suited for him. Hmmm... "
 
@@ -330,14 +304,13 @@ label start:
     "{i}Reward: 500gp{/i}"
     "{i}Description: Take out the leader of the bandit guild Lemur’s Tail. See me for more instructions at a red barn just outside of Broken Shield{/i}"
 
-    "Hmm, this one seems good. Must be a small guild if they’re only offering that much. I’ve never even heard of Lemur’s Tail."
 
-    scene bg PFbar
-    show barkeep neutral
+    g "Hmm, this one seems good. Must be a small guild if they’re only offering that much. I’ve never even heard of Lemur’s Tail."
+
+
 
     "Vic" "Ah, Lemur’s Tail. It’s a new guild. Not that many members. Should be a pretty easy job. So you taking it, kid?"
 
-    show Lazarus neutral
 
     g "Laz, what do you think?"
 

@@ -1,0 +1,71 @@
+﻿
+Ren'Py 6.18.3.761 lint report, generated at: Fri Jan 30 12:53:56 2015
+
+game/script.rpy:14 Image bg darkroom uses file 'darkroom.png', which is not loadable.
+
+game/script.rpy:15 Image bg pfentrance uses file 'PFentrance.png', which is not loadable.
+
+game/script.rpy:16 Image bg pfbar uses file 'Pfbar.png', which is not loadable.
+
+game/script.rpy:17 Image bg malroom uses file 'malroom.png', which is not loadable.
+
+game/script.rpy:18 Image bg vial uses file 'malvial.png', which is not loadable.
+
+game/script.rpy:19 Image bg alchemyroom uses file 'alchemyroom.png', which is not loadable.
+
+game/script.rpy:20 Image bg pftable uses file 'Pftable.png', which is not loadable.
+
+game/script.rpy:21 Image bg jobboard uses file 'jobboard.png', which is not loadable.
+
+game/script.rpy:23 Image barkeep joyful uses file 'barkeep_joyful.png', which is not loadable.
+
+game/script.rpy:24 Image barkeep neutral uses file 'barkeep_neutral.png', which is not loadable.
+
+game/script.rpy:25 Image lazarus irritated uses file 'laziritated.png', which is not loadable.
+
+game/script.rpy:26 Image lazarus shocked uses file 'lazshocked.png', which is not loadable.
+
+game/script.rpy:27 Image lazarus neutral uses file 'lazneutral.png', which is not loadable.
+
+game/script.rpy:28 Image malvin irritated uses file 'Malirritated.png', which is not loadable.
+
+game/script.rpy:29 Image malvin neutral uses file 'Malneutral.png', which is not loadable.
+
+game/script.rpy:30 Image vlad neutral uses file 'Vladneutral.png', which is not loadable.
+
+game/script.rpy:58 Could not evaluate 'Barkeep', in the who part of a say statement.
+Perhaps you forgot to declare a character?
+
+game/script.rpy:87 Could not evaluate 'Unfamilar', in the who part of a say statement.
+
+game/script.rpy:105 Could not evaluate 'Unfamiliar', in the who part of a say statement.
+
+game/script.rpy:111 Could not evaluate 'Unfamiliar', in the who part of a say statement.
+
+game/script.rpy:117 Could not evaluate 'The', in the who part of a say statement.
+
+game/script.rpy:127 Could not evaluate 'This', in the who part of a say statement.
+
+game/script.rpy:162 Could not evaluate 'Malvin', in the who part of a say statement.
+
+game/script.rpy:238 Could not evaluate 'vlad', in the who part of a say statement.
+
+game/script.rpy:253 The image named 'lazarus shocked' was not declared.
+
+game/script.rpy:295 Could not evaluate 'Vic', in the who part of a say statement.
+
+game/script.rpy:310 Could not evaluate 'Vic', in the who part of a say statement.
+
+
+Statistics:
+
+The game contains 124 dialogue blocks, containing 1,726 words and 8,991
+characters, for an average of 13.9 words and 73 characters per block.
+
+The game contains 0 menus, 16 images, and 12 screens.
+
+
+Remember to set config.developer to False before releasing.
+
+Lint is not a substitute for thorough testing. Remember to update Ren'Py
+before releasing. New releases fix bugs and improve compatibility.

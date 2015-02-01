@@ -10,6 +10,8 @@ define l = Character('Lazarus', color="#70f")
 define m = Character('Malvin', color="#0400ff")
 define g = Character('Grey', color="#808080")
 define v = Character('Vlad', color="#000000")
+define k = Character('Knox', color="#000000")
+define t = Character('Tiren', color ="#f0b")
 
 image bg darkroom = "darkroom.png"
 image bg PFentrance = "PFentrance.png"
@@ -19,6 +21,16 @@ image bg vial = "malvial.png"
 image bg alchemyroom = "alchemyroom.png"
 image bg PFtable = "Pftable.png"
 image bg jobboard = "jobboard.png"
+image bg mudfield = "mudfield.png"
+image bg gobbrain = "gobbrain.png"
+image bg longbeard = "longbeard.png"
+image bg gobbattle = "gobbattle.png"
+image bg troops = "troops.png"
+image bg troops charge = "troopscharge.png"
+image bg gobcharge = "gobcharge.png"
+scene bg troopcamp = "troopcamp.png"
+image bg healing = "healing.png"
+image bg healded = "healed.png"
 
 image barkeep joyful = "barkeep_joyful.png"
 image barkeep neutral = "barkeep_neutral.png"
@@ -28,8 +40,30 @@ image Lazarus neutral = "lazneutral.png"
 image Malvin irritated = "Malirritated.png"
 image Malvin neutral = "Malneutral.png"
 image Vlad neutral = "Vladneutral.png"
+image goblinfire = "gobfire.png"
+image gobsil = "gobsil.png"
+image soldier weary = "wearysoldier.png"
+image knox neutral = "Knoxneutral.png"
+image maiya neutral = "maiyaneutral.png"
+
+
 
 label start:
+
+    "Welcome... Adventurer. Pick ye path... Be ye Assassin, Knight or Wizard?"
+
+    menu:
+        "Asassin."
+            jump choiceassassin
+
+        "Knight."
+            jump choiceknight
+
+        "Wizard"
+            jump choicewizard
+
+label assassin:
+
     scene bg darkroom
 
     "hrg- wha a- ah... ahhggh"
@@ -40,7 +74,7 @@ label start:
 
     "A sound that I have heard many times by now. How long has it been, I wonder?"
 
-    "Filled with Hesitation when I made my first kill, I had to get used to it fast."
+    "Filled with hesitation when I made my first kill, I had to get used to it fast."
 
     "You had no choice. You had to get used to it. You get used to living the life of an..."
 
@@ -70,7 +104,7 @@ label start:
 
     "Barkeep" "Heya kid, you're back! How'd the job go?"
 
-    "Well enough. Had to dirty my blade but that's how it usually ends up."
+    "You" "Well enough. Had to dirty my blade but that's how it usually ends up."
 
     "He nods as he gets back to work."
 
@@ -114,17 +148,17 @@ label start:
     #“You’re no fun, Laz.”
     #---
 
-    "Who in the hells are you? Never seen your face around here."
+    "You" "Who in the hells are you? Never seen your face around here."
 
-    "Unfamiliar person" "Pretty rude wat to greet a new member after ignoring him, buddy."
+    "Unfamiliar person" "Pretty rude way to greet a new member after ignoring him, buddy."
 
     # "I'm not your buddy, pal!"
 
-    "A new member? Great! You start first thing next week."
+    "You" "A new member? Great! You start first thing next week."
 
-    "Unfamiliar really wierd person" "And now you're ordering me around like you're my new boss. Who in the the hells are {i}you?{/i}"
+    "Unfamiliar really wierd person" "And now you're ordering me around like you're my new boss. Who in the hells are {i}you?{/i}"
 
-    "Your new boss, my names Grey!"
+    "You" "Your new boss, my names Grey!"
 
     show lazarsus shocked
 
@@ -138,7 +172,7 @@ label start:
 
     show lazarus neutral
 
-    "This guy" "Uh, L-Lazarus, sir. Lazarus Redfield."
+    "Lazarus" "Uh, L-Lazarus, sir. Lazarus Redfield."
 
     g "Well then, Laz, I’m off to meet with Mal. Go and get acquainted with the other members. You’ll want friends in a place like this..."
 
@@ -222,9 +256,9 @@ label start:
 
     m "What do you mean?"
 
-    g "Well how does the poison kill the target."
+    g "Well, how does the poison kill the target?"
 
-    m "By burning him ali-... oh."
+    m "By burning them ali-... oh."
 
     "He finally gets it."
 
@@ -242,7 +276,7 @@ label start:
 
     g "Why not?"
 
-    m "The Materiels I used for this are pretty rare. I had only intended for this to be used by our guild, so I don’t have enough to make a market for it."
+    m "The materiels I used for this are pretty rare. I had only intended for this to be used by our guild, so I don’t have enough to make a market for it."
 
     g "Good point."
 
@@ -251,13 +285,13 @@ label start:
     play sound "table_crash.ogg"
     play music "Trouble.ogg"
 
-    g "Please don't let that be him!"
+    g "Please don't let that be him."
 
     scene bg PFtable
     show Lazarus irritated at right
     show Vlad neutral at left
 
-    "Vlad" "Seems you have some anger problems, new guy. Assassins with anger problems never last long. It seems that you want an early grave and a place of your own in one of the nine hells."
+    "Man with the Skeleton Mask" "Seems you have some anger problems, new guy. Assassins with anger problems never last long. It seems that you want an early grave and a place of your own in one of the nine hells."
 
     "Uh-oh. This isn't good."
 
@@ -326,7 +360,7 @@ label start:
 
     "Hm, Vics right. Looks like only 3 missions available and doable. I don’t even know what Lazarus is even capable of, let alone what jobs are suited for him. Hmmm... "
 
-    "{i}Job, cutting off the taul of the Lemur{/i}"
+    "{i}Job, cutting off the tail of the Lemur{/i}"
     "{i}Reward: 500gp{/i}"
     "{i}Description: Take out the leader of the bandit guild Lemur’s Tail. See me for more instructions at a red barn just outside of Broken Shield{/i}"
 
@@ -357,6 +391,291 @@ label start:
 
     "He takes a deep breath, as if adjusting something within himself."
 
-    g "Alright, let’s go then, buddy."
+    l "Alright, let’s go then, buddy."
 
     "{i} To be continued... {/i}"
+
+    jump let_the_games_begin
+
+label choiceknight
+
+    play rain.ogg loop
+    "..."
+    scene bg mud field
+    "They came from nowhere."
+
+    "There weren’t supposed to be goblins on this route, but there they were. Nasty little things, goblins.""
+
+    with dissolve(2)
+    scene bg gobrain
+    show gobsil
+    play goblins.ogg loop
+
+    "Goblins are a weak but stubborn race. Little green heads on a child like body, they despise the bigger races for their height and superiority."
+
+    "Quick to breed, they rely on their sheer numbers and tenacity for the advantage. They live for the fun they have from torturing other races."
+
+    "Fire is one of their favorite methods of destruction. Many a time a goblin fire has taken lives and ruined towns."
+
+    show goblinfire
+
+    "Many a time there have been campaigns to eradicate the goblin race. Every one ended in failure."
+
+    "Legends say that one Dwarven General named Longbeard led an army of troops deep into goblin territory. It says that the fields for miles were nothing but goblins."
+
+    "You couldn’t even see the grass."
+
+    "It was nothing but a sea of melons. A sea of melons with teeth. A sea of melons with tenacity that would only be quelled upon death. A sea of melons that hated to be compared to melons."
+
+    with dissolve(1)
+
+    scene bg longbeard
+    play comedytheme.ogg loop
+
+    "As a side note, Longbeard was named that because his family was famous for long beards; his especially so. Rumors say that it was so long, that he had someone carry it for him so he wouldn’t trip on it."
+
+    "Personally, I think he just tucked it in folds to shorten the length, considering it would be difficult to battle with such a long beard."
+
+    with dissolve(2)
+
+    scene bg gobsil
+    play goblins.ogg loop
+
+    "Now is not the time for jokes and fun ideas. It’s no joke that the goblins are one of the most annoying races that an adventure can come across. In small numbers, they aren’t that bad.""
+
+    "The real trouble is when they outnumber you 10 to 1; which is what it seemed like today."
+
+    with dissolve
+    scene bg gobbattle
+    play battletheme.ogg loop
+
+    "And now, we must fight this battle in order to see tomorrow."
+
+    "You" "Don’t falter, men! We must prevail!"
+
+    "Sometimes the best way to encourage the troops is to get into the fray yourself. I make my way up to the front lines on foot; my horse taken out by a hail of goblin arrows.""
+
+    scene bg gobbat
+
+    "I swing my sword down on the first goblin I see."
+
+    "Urgh!"
+
+    "His skull crushed, the first goblin falls to the ground. However, another one takes it’s place; charging at me with a war cry."
+
+    "RRRAAAAGH!!!"
+
+    "I grunt as the goblin sword hits my shield and take a swipe of my own. My slash opens the goblin’s chest, but he still fights on."
+
+    "After a few more exchanges, he finally falls. The next goblin steps up."
+
+    "Argh!"
+
+    "A hit. On the leg. I can still fight though. I bring my sword down on the goblin’s green head: splitting it open. The nasty little monster falls, and another one takes its place."
+
+    "This continues for what feels like an eternity. Just before I reach my limit- the goblin’s seemingly endless numbers finally dwindle- we get a reprieve. I nearly fall to my knees, using just my sword to keep me up."
+
+    scene bg gobbrain
+    show soldier weary
+
+    "Captain, should we pursue them? Their forces are in disarray. Now might be a good time to strike."
+
+    "A soldier next to me proposes a battle plan. One of my advisors. Another soldier yells out in protest."
+
+    "Advisor" "But we need to rest. We’re in as much of a disarray as them. An attack now would be suicide."
+
+    "Two choices. To attack, or rest. I look out before my troops."
+
+    image bg troops
+
+    "They look to me expectantly; waiting for orders. I know for a fact that they’re perfectly willing to pursue them if I give the order, despite the one soldier’s compliant. But if I push them too far, they’ll break."
+
+    "Two choices. To attack, or rest. Which choice is the best for my troops?"
+
+
+    menu:
+        "Attack!"
+            jump attack
+
+        "Rest."
+            jump rest
+
+label attack
+
+    "You" "Forward, men! This is our only chance to wipe out the goblins before they can make a second attack. Charge!"
+
+    "The troops filed up, some reluctantly, and charged across the plain."
+
+    scene bg troops charge
+
+    "To charge an opponent is a risky maneuver. It leaves you defenseless in exchange for a powerful offensive."
+
+    "To attack or defend is an important choice in any battle. If you defend, you go nowhere. If you attack, you lose more troops."
+
+    "A very important choice. One must also know the right time when to retreat. Something these goblins have never learned. This is what makes them so dangerous."
+
+    "Even if they appear to retreat, they’re only regrouping for another assault."
+
+    "We reach their line; and the deafening fighting begins once more."
+
+    jump attack2
+
+label rest
+
+    "Rest up, men. We’ll need our strength for the goblin’s next attack. If we attack in this state, we’ll be wiped out.""
+
+    "The troops collapse with relieved expressions."
+
+    jump rest2
+
+    scene bg gobcharge
+
+    "We’re ready for them."
+
+    "The goblins charge across the plains, aiming straight for us. However, with our line of shields, we should hold the line."
+
+    "A defensive wall is a risky maneuver. While it does protect your men and gives you a greater chance of surviving; you don’t gain anything from it.
+
+    "To attack or defend is an important choice in any battle. If you defend, you go nowhere. If you attack, you lose more troops.
+
+    "A very important choice. One must also know the right time when to retreat. Something these goblins have never learned. This is what makes them so dangerous.
+
+    "Even if they appear to retreat, they’re only regrouping for another assault.
+
+    "They reach our line and the deafening fighting begins once more.
+
+
+ #[The path deviation ends here(only subtle differences from now on]
+
+    scene bg troopcamp
+
+label attack2
+
+"The plan had worked. The goblins were lying in wait. However, since we attacked immediately, they didn’t have time to set up and we slaughter the nine hells out of them."
+
+    jump return2story
+
+label rest2
+
+"As it turns out, the goblins had planned an ambush. Since we didn’t attack, they got impatient and charged us, resulting in their defeat."
+
+    jump return
+
+label return2story
+
+show knox neutral
+
+    "A wounded soldier came up to me with a limp."
+
+    "Knox" "General, I would like to talk to you."
+
+    "It was my advisor from before."
+
+    t "I keep telling you, Knox, don’t call me General. We know each other, so no need to use ranks. Just call me Tiren."
+
+    k "Yes, sir, General Tiren."
+
+    t "You should be resting like Maiya said. I’ll meet you in your tent to discuss strategy."
+
+    k "No need, this is nothing. We can talk here."
+
+    "Here we go again."
+
+    t "Now listen, Knox. It’s important to get your rest. You should be able to fight as much of the time as possible. You never know when we could be attacked. Now go back to your tent. That’s an order."
+
+    "Knox didn’t say anything. He spun on his heel and walked- err, limped, back to his tent."
+
+    show Maiya neutral
+
+    "Maiya" "General, I have concerns about your... condition.”
+
+    t "What do you mean, Maiya? I’m not sick. You yourself know that much."
+
+    "Maiya" "It’s not about your bodies health, General. It’s just that... I noticed you have a very slight limp."
+
+    "Ever the observant one, aren’t you Maiya. I have the same problem as Knox, though he has it worse."
+
+    t "Oh, that. I almost forgot about that; I’ve been sitting for too long. I was actually going to go see you about that. A goblin got my leg."
+
+    "I lift my leg up and Maiya gets to work with her healing magic"
+
+    play Wondersofmagic.ogg loop
+    scene bg healing
+
+    "I relax as the magic courses through me."
+
+    t "Ahhh, that feels good. I always liked cleric magic."
+
+    "Maiya says nothing as she concentrates on her work."
+
+    scene bg healed
+
+    "Maiya" "There. Good as new."
+
+    scene bg troopcamp
+    show maiya neutral
+
+    "Miaya" "Is there anything else I may provide assistance for, General?”
+
+    t "No, you’ve done more than enough. You may continue your duties."
+
+    scene bg troopcamp
+
+    "She nods and goes to heal more of the injured."
+
+    "I swear she acts like an animated suit of armor. I don’t think I’ve ever seen her smile or frown. Just this medium look. It’s queer."
+
+    "I look around the camp at the several wounded troops. Luckily there we no casualties."
+
+    "However, from here on out, it’s only going to get harder. I can only hope to led them to victory and not death."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+label let_the_games_begin

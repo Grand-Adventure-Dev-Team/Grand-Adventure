@@ -2,8 +2,104 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 12: invalid syntax
-    Character('Vlad' color="#000000")
-                          ^
+File "game/script.rpy", line 456: play requires a channel
+    play "ComedyTheme.mp3" loop
+         ^
 
-Ren'Py Version: Ren'Py 6.18.3.761
+File "game/script.rpy", line 465: play requires a file
+    play goblins.ogg loop
+                ^
+
+File "game/script.rpy", line 573: expected statement.
+    music stop
+              ^
+
+File "game/script.rpy", line 578: expected ':' not found.
+    label attack2
+                 ^
+
+File "game/script.rpy", line 594: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    "A wounded soldier came up to me with a limp."
+    ^
+
+File "game/script.rpy", line 693: expected statement.
+    music stop
+              ^
+
+File "game/script.rpy", line 778: end of line expected.
+    show image tina neutral
+                    ^
+
+File "game/script.rpy", line 805: end of line expected.
+    show image tina worried
+                    ^
+
+File "game/script.rpy", line 821: end of line expected.
+    show image tina shocked
+                    ^
+
+File "game/script.rpy", line 827: end of line expected.
+    show image tina curious
+                    ^
+
+File "game/script.rpy", line 833: end of line expected.
+    show image tina shocked
+                    ^
+
+File "game/script.rpy", line 842: end of line expected.
+    show image tina neutral
+                    ^
+
+File "game/script.rpy", line 887: end of line expected.
+    show image skeleton right
+                        ^
+
+File "game/script.rpy", line 888: end of line expected.
+    show image tina left
+                    ^
+
+File "game/script.rpy", line 926: end of line expected.
+    show image tina blushing
+                    ^
+
+File "game/script.rpy", line 932: end of line expected.
+    show image tina neutral
+                    ^
+
+File "game/script.rpy", line 938: end of line expected.
+    show image tina worried
+                    ^
+
+File "game/script.rpy", line 946: end of line expected.
+    show image tina shocked.
+                    ^
+
+File "game/script.rpy", line 956: end of line expected.
+    show image tina worried
+                    ^
+
+File "game/script.rpy", line 997: end of line expected.
+    show image tina curious
+                    ^
+
+File "game/script.rpy", line 1005: could not parse statement.
+    play play music "comedytheme.mp3" loop
+                    ^
+
+File "game/script.rpy", line 1006: end of line expected.
+    show image tina shocked
+                    ^
+
+File "game/script.rpy", line 1012: end of line expected.
+    show image tina crying
+                    ^
+
+File "game/script.rpy", line 1022: end of line expected.
+    show image tina shocked
+                    ^
+
+File "game/script.rpy", line 1028: end of line expected.
+    show image tina crying
+                    ^
+
+Ren'Py Version: Ren'Py 6.99.0.301

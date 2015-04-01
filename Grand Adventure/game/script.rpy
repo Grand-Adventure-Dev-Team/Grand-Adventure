@@ -1,12 +1,8 @@
-# You can place the script of your game in this file.
- 
-# Declare images below this line, using the image statement.
-# eg. image eileen happy = "eileen_happy.png"
- 
 # For picking the color of characters, use http://hslpicker.com
  
 # For a comprehensive Renpy Manuel: http://renpyhandbook.tumblr.com/code-tutorials
- 
+# Tile Engine for combat: http://www.renpy.org/wiki/renpy/doc/cookbook/Tile_and_Unit_Engines
+
 # Declare characters used by this game.
 define l = Character('Lazarus', color="#70f")
 define m = Character('Malvin', color="#0400ff")
@@ -37,7 +33,7 @@ image bg troopcamp = "troopcamp.png"
 image bg healing = "healing.png"
 image bg healded = "healed.png"
 image bg wizard shop = "wizshop.png"
-image bg wizard shop hall "wizshophall.png"
+image bg wizard shop hall = "wizshophall.png"
 image bg Tina octopus = "tinahentei.png"
 image bg flash = "flash.png"
 image bg wizard shop hall night = "wizshophallnight.png"
@@ -73,30 +69,32 @@ image tina curious = "tinacurious.png"
 image tina crying = "tinacrying.png"
 image skeleton = "skeleton.png"
  
- 
+$ flash = Fade(.25, 0, .75, color="#4d0101") 
+
 label start:
  
     "Welcome... Adventurer. Pick your path."
  
     menu:
-        "Asassin."
+        "Asassin": 
             jump choiceassassin
  
-        "Knight."
-            jump choiceknight
+        "General" :
+            jump choicegeneral
  
-        "Wizard"
-            jump choicewizard
+        "Sorcerer" :
+            jump choicesorcerer
  
 label assassin:
  
     scene bg darkroom
  
-    "hrg- wha a- ah... ahhggh"
+    "hrg- wha a- ah... ahhggh..."
  
     play music "After a Kill.ogg" loop
  
     "Ah, the sound of death."
+    with flash
  
     "A sound that I have heard many times by now. How long has it been, I wonder?"
  
@@ -112,7 +110,7 @@ label assassin:
     pause 1
  
     scene bg PFentrance
-    play music "Buisness as Usual.ogg" loop
+    play music "BassWalker.mp3" loop
  
     "I walk into the guild, as I am so often used to doing."
  
@@ -308,8 +306,8 @@ label assassin:
  
     m "I heard a rumor about a new recruit. Did he report to you yet?"
  
-    play sound "table_crash.ogg"
-    play music "Trouble.ogg"
+    play sound "pianobreak.wav"
+    play music "Trouble.mp3" loop
  
     g "Please don't let that be him."
  
@@ -335,13 +333,13 @@ label assassin:
  
     show lazarus shocked
  
-    #l "He did what?"
+    l "He did what?"
  
-    #g "He ************************"
+    g "He ************************"
  
-    #l "What does * mean?"
+    l "What does * mean?"
  
-    #g "Woah. Haven’t heard that much vulgar language since my days with Lion’s Paw. Uhh, let’s just say you don’t want to know..."
+    g "Woah. Haven’t heard that much vulgar language since my days with Lion’s Paw. Uhh, let’s just say you don’t want to know..."
  
     "Lazarus looks at Vlad with a new sense of fear."
  
@@ -367,8 +365,7 @@ label assassin:
  
  
     show Lazarus Neutral
-    play music "Buisness as usual.ogg" loop
- 
+    play music "Basswalker.mp3" loop
     "...Creepy."
  
     "He's obivously enjoying himself. You'd think he started those rumours himself."
@@ -423,19 +420,19 @@ label assassin:
  
     jump let_the_games_begin
  
-label choiceknight
+label choicegeneral:
  
-    play rain.ogg loop
+    play sound rain.wav loop
     "..."
     scene bg mud field
     "They came from nowhere."
  
-    "There weren’t supposed to be goblins on this route, but there they were. Nasty little things, goblins.""
+    "There weren’t supposed to be goblins on this route, but there they were. Nasty little things, goblins."
  
     with dissolve(2)
     scene bg gobrain
     show gobsil
-    play goblins.ogg loop
+    play music "goblins.ogg" loop
  
     "Goblins are a weak but stubborn race. Little green heads on a child like body, they despise the bigger races for their height and superiority."
  
@@ -456,7 +453,7 @@ label choiceknight
     with dissolve(1)
  
     scene bg longbeard
-    play comedytheme.ogg loop
+    play "ComedyTheme.mp3" loop
  
     "As a side note, Longbeard was named that because his family was famous for long beards; his especially so. Rumors say that it was so long, that he had someone carry it for him so he wouldn’t trip on it."
  
@@ -467,19 +464,19 @@ label choiceknight
     scene bg gobsil
     play goblins.ogg loop
  
-    "Now is not the time for jokes and fun ideas. It’s no joke that the goblins are one of the most annoying races that an adventure can come across. In small numbers, they aren’t that bad.""
+    "Now is not the time for jokes and fun ideas. It’s no joke that the goblins are one of the most annoying races that an adventure can come across. In small numbers, they aren’t that bad."
  
     "The real trouble is when they outnumber you 10 to 1; which is what it seemed like today."
  
     with dissolve
     scene bg gobbattle
-    play battletheme.ogg loop
+    play music "battletheme.mp3" loop
  
     "And now, we must fight this battle in order to see tomorrow."
  
     "You" "Don’t falter, men! We must prevail!"
  
-    "Sometimes the best way to encourage the troops is to get into the fray yourself. I make my way up to the front lines on foot; my horse taken out by a hail of goblin arrows.""
+    "Sometimes the best way to encourage the troops is to get into the fray yourself. I make my way up to the front lines on foot; my horse taken out by a hail of goblin arrows."
  
     scene bg gobbat
  
@@ -512,7 +509,7 @@ label choiceknight
  
     "Two choices. To attack, or rest. I look out before my troops."
  
-    image bg troops
+    scene bg troops
  
     "They look to me expectantly; waiting for orders. I know for a fact that they’re perfectly willing to pursue them if I give the order, despite the one soldier’s compliant. But if I push them too far, they’ll break."
  
@@ -520,13 +517,13 @@ label choiceknight
  
  
     menu:
-        "Attack!"
+        "Attack!" :
             jump attack
  
-        "Rest."
+        "Rest." :
             jump rest
  
-label attack
+label attack:
  
     "Knight" "Forward, men! This is our only chance to wipe out the goblins before they can make a second attack. Charge!"
  
@@ -546,9 +543,9 @@ label attack
  
     jump attack2
  
-label rest
+label rest:
  
-    "Rest up, men. We’ll need our strength for the goblin’s next attack. If we attack in this state, we’ll be wiped out.""
+    "Rest up, men. We’ll need our strength for the goblin’s next attack. If we attack in this state, we’ll be wiped out."
  
     "The troops collapse with relieved expressions."
  
@@ -560,34 +557,37 @@ label rest
  
     "The goblins charge across the plains, aiming straight for us. However, with our line of shields, we should hold the line."
  
-    "A defensive wall is a risky maneuver. While it does protect your men and gives you a greater chance of surviving; you don’t gain anything from it.
+    "A defensive wall is a risky maneuver. While it does protect your men and gives you a greater chance of surviving; you don’t gain anything from it."
  
-    "To attack or defend is an important choice in any battle. If you defend, you go nowhere. If you attack, you lose more troops.
+    "To attack or defend is an important choice in any battle. If you defend, you go nowhere. If you attack, you lose more troops."
  
-    "A very important choice. One must also know the right time when to retreat. Something these goblins have never learned. This is what makes them so dangerous.
+    "A very important choice. One must also know the right time when to retreat. Something these goblins have never learned. This is what makes them so dangerous."
  
-    "Even if they appear to retreat, they’re only regrouping for another assault.
+    "Even if they appear to retreat, they’re only regrouping for another assault."
  
-    "They reach our line and the deafening fighting begins once more.
+    "They reach our line and the deafening fighting begins once more."
  
  
  #[The path deviation ends here(only subtle differences from now on]
  
+    music stop
+    play sound "rain.wav" loop
+    
     scene bg troopcamp
  
-label attack2
+label attack2:
  
-"The plan had worked. The goblins were lying in wait. However, since we attacked immediately, they didn’t have time to set up and we slaughter the nine hells out of them."
+    "The plan had worked. The goblins were lying in wait. However, since we attacked immediately, they didn’t have time to set up and we slaughter the hells out of them."
  
-    jump return2story
+jump return2story
  
-label rest2
+label rest2:
  
-"As it turns out, the goblins had planned an ambush. Since we didn’t attack, they got impatient and charged us, resulting in their defeat."
+    "As it turns out, the goblins had planned an ambush. Since we didn’t attack, they got impatient and charged us, resulting in their defeat."
  
-    jump return
+jump return2story
  
-label return2story
+label return2story:
  
 show knox neutral
  
@@ -625,7 +625,7 @@ show knox neutral
  
     "I lift my leg up and Maiya gets to work with her healing magic."
  
-    play Wondersofmagic.ogg loop
+    play music "WondersofMagic.mp3" loop
     scene bg healing
  
     "I relax as the magic courses through me."
@@ -657,13 +657,13 @@ show knox neutral
  
     "{i}To be Continued...{/i}"
  
-label choicewizard
+label choicesorcerer:
  
     scene bg wizard shop
  
     "Apprentice" "Ahhhhhhhhhhhhhh!!! Let go! Help me! Help me! Master! Mmmmaaaaaaaaaasssstttteeeeerr!"
  
-    play "Trouble.ogg" loop
+    play music "Trouble.mp3" loop
  
     "Old Wizard" "{i}sigh{/i}"
  
@@ -699,7 +699,7 @@ label choicewizard
     scene bg flash
     with dissolve(2)
     scene bg wizard shop
-    play comedy theme loop
+    play music "Comedytheme.mp3" loop
  
     "I walk over and take one of the bowls to scoop some salad into it. However, my apprentice stops me."
  
@@ -721,7 +721,7 @@ label choicewizard
  
     show tina neutral
  
-    play "Buisness as Usual.ogg" loop
+    play music "Buisness as Usual.ogg" loop
  
     "Old Wizard" "You’d better get your rest. We leave for the ruins first thing tomorrow."
  
@@ -731,7 +731,7 @@ label choicewizard
  
     show tina confused
  
-    "Tina seems confused as I take my leave; taking the fruit salad with me.""
+    "Tina seems confused as I take my leave; taking the fruit salad with me."
  
     scene bg wizard shop hall
  
@@ -743,7 +743,7 @@ label choicewizard
  
     scene bg shop night
  
-    play "night.ogg" loop
+    play sound "owl.wav"
  
     d "Tina! Get up! It’s time to go!"
  
@@ -851,15 +851,14 @@ label choicewizard
  
     with dissolve(2)
     scene bg black
-    music stop
- 
+    
     "I close my eyes and concentrate."
  
     "I draw in the magical energy from the world around me."
  
     "Mortuus Animatae!"
  
-    play "wondersofmagic.ogg" loop
+    play music "wondersofmagic.mp3" loop
  
     "Tina looks on with wonder. Several seconds pass before the ritual is complete."
  
@@ -920,7 +919,7 @@ label choicewizard
  
     with dissolve(0.5)
     scene bg ruins circle
-    play "night.ogg" loop
+    play sound "night.wav" loop
  
     d "Good work today, Tina. You have a natural talent for this. Three skeletons at once on your first night. It makes me proud."
  
@@ -952,7 +951,7 @@ label choicewizard
  
     d "I’ll tell you the secret to my longevity a different night. Now, where were we? Ah, yes, Lyra. A beautiful woman, with a good personality as well as an extraordinary magical talent. If I said anything less about her, she would pop out of the earth and strangle me herself."
  
-    play "Sadness.ogg" loop
+    play music "Sadness.ogg" loop
  
     show image tina worried
  
@@ -986,15 +985,15 @@ label choicewizard
  
     d "Some Dwarven forces caught her on her travels. She escaped but they were never far behind." 
  
-     "She made a final stand in her house and took out a good part of their troops. Now, her house is a perfect place to practice necromancy; with how many dead dwarves she got."
+    d "She made a final stand in her house and took out a good part of their troops. Now, her house is a perfect place to practice necromancy; with how many dead dwarves she got."
  
     ta "But the skeletons were human, right? How did humans get buried in there?"
  
-    "A good question with multiple answers. First of all, it’s much easier to make a human skeleton since we have something to base it off of. Second, there was a good amount of humans in that particular group of Dwarf troops. You know how different groups of humans supported both sides."
+    d "A good question with multiple answers. First of all, it’s much easier to make a human skeleton since we have something to base it off of. Second, there was a good amount of humans in that particular group of Dwarf troops. You know how different groups of humans supported both sides."
  
     d "It’s a shame that Lyra is gone though. So many secrets yet to discover. What’s done is done. No undoing the past without the proper artifact."
  
-    play "night.ogg" loop
+    play music "night.wav" loop
     show image tina curious
  
     ta "Is that possible, Master? Undoing past events?"
@@ -1003,7 +1002,7 @@ label choicewizard
  
     ta "Come now, it’s almost daylight. We have a busy day in the shop."
  
-    play "comedy theme.ogg"
+    play music "comedytheme.mp3" loop
     show image tina shocked
  
     ta "What?! You’re not letting me go back to sleep?!"
@@ -1034,9 +1033,4 @@ label choicewizard
  
     d "Maybe I was a little too hard on my young apprentice. Oh well, I’ll make it up to her later."
     
-label let_the_games_begin
-
-Write Preview Parsed as Markdown  Edit in fullscreen
-
-Comment
-Status API Blog About © 2015 GitHub, Inc. Terms Privacy Security Contact 
+label let_the_games_begin :

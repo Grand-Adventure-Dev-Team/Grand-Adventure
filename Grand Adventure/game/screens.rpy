@@ -1,4 +1,4 @@
-﻿# This file is in the public domain. Feel free to modify it as a basis
+# This file is in the public domain. Feel free to modify it as a basis
 # for your own screens.
 
 # Note that many of these screens may be given additional arguments in the
@@ -537,12 +537,12 @@ screen quick_menu():
 
         textbutton _("Back") action Rollback()
         textbutton _("Save") action ShowMenu('save')
-        textbutton _("Q.Save") action QuickSave()
-        textbutton _("Q.Load") action QuickLoad()
+        textbutton _("Quicksave") action QuickSave()
+        textbutton _("QuickLoad") action QuickLoad()
         textbutton _("Skip") action Skip()
         textbutton _("F.Skip") action Skip(fast=True, confirm=True)
         textbutton _("Auto") action Preference("auto-forward", "toggle")
-        textbutton _("Prefs") action ShowMenu('preferences')
+        textbutton _("Preferences") action ShowMenu('preferences')
 
 init -2:
     style quick_button:
